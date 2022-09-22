@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student grade calcy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <div class="background">
+        <div class="container">
+          <div class="screen">
+            <div class="screen-body">
+              <div class="screen-body-item left">
+                <div class="app-title">
+                  <div class="animated infinite pulse">
+                    Student <br> Grade <br> Calcy
+                  </div>
+                </div>
+              </div>
+              <div class="screen-body-item">
+                <div class="app-form">
+                  <div class="app-form-group">
+                    <input type="text" class="app-form-control" placeholder="WEB PROGRAMMING" id="wd">
+                  </div>
+                  <div class="app-form-group">
+                    <input  type="text"  class="app-form-control"   placeholder="MATHS" id="maths">
+                  </div>
+                   <div class="app-form-group">
+                    <input  type="text"  class="app-form-control"   placeholder="COMPUTER" id="comp">
+                  </div>
+                  <div class="app-form-group">
+                    <input  type="text"  class="app-form-control"   placeholder="PHYSICS" id="phy" >
+                  </div>
+                  <div class="app-form-group">
+                    <input  type="text"  class="app-form-control"   placeholder="CHEMISTRY" id="chem" >
+                  </div>
+                  <div > 
+                    <input type="button" name="" value="showPercentage" class="app-form-button" onclick="calcy()">
+                  </div>            
+                </div>
+            </div>
+      
+          </div>
+            <div class="app-form-group showdata">
+                    <p id="showData" >  </p>
+           </div>
+        </div>
+      </div>
+
+      <script src=""></script>
+
+      <script>
+  
+        const calcy = () =>{
+          let wd = document.getElementById('wd').value;
+          let maths = document.getElementById('maths').value;
+          let comp = document.getElementById('comp').value;
+          let phy = document.getElementById('phy').value;
+          let chem = document.getElementById('chem').value;
+          let grades = "";
+        
+        
+          let totalGrades = parseFloat(wd) + parseFloat(maths) + parseFloat(comp) + parseFloat(chem) + parseFloat(phy);
+          alert(totalGrades);
+        
+          let perc = (totalGrades/500) * 100;
+          alert(perc);
+        
+          debugger;
+        
+          if(perc <= 100  && perc >= 80){
+            grades = 'A+';
+          }else if(perc <= 79  && perc >= 70){
+             grades = 'A';
+          }else if(perc <= 69  && perc >= 60){
+             grades = 'B';
+          }else if(perc <= 59  && perc >= 50){
+             grades = 'C';
+          }else{
+             grades = 'D';
+          }
+        
+          if(perc >= 39.5){
+            document.getElementById('showData').innerHTML = ` Out of 500 your total is  ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}. You are Pass. `
+          }
+          else{
+            document.getElementById('showData').innerHTML = ` Out of 500 your total is  ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}. You are Fail. `
+          }
+        
+          
+        }
+        
+        
+        </script>
+</body>
+</html>
